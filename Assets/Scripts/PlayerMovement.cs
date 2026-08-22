@@ -10,16 +10,28 @@ public class PlayerMovement : MonoBehaviour
     public float maxX = 4f;
 
     [Header("Salto")]
-    public float jumpForce = 6f;
-    public float fallMultiplier = 2.5f;
+    public float jumpForce = 4f;
+    public float fallMultiplier = 0.8f;
 
     private Rigidbody rb;
+    private Animator animator;
+
     private float moveDirection = 0f;
     private bool isGrounded = true;
+
+    private string currentAnimation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>(true);
+
+        PlayAnimation("idle");
+    }
+
+    void Update()
+    {
+        UpdateAnimation();
     }
 
     void FixedUpdate()
@@ -44,6 +56,31 @@ public class PlayerMovement : MonoBehaviour
         rb.position = position;
     }
 
+    private void UpdateAnimation()
+    {
+        if (!isGrounded)
+        {
+            PlayAnimation("jump");
+        }
+        else if (moveDirection != 0)
+        {
+            PlayAnimation("walk");
+        }
+        else
+        {
+            PlayAnimation("idle");
+        }
+    }
+
+    private void PlayAnimation(string animationName)
+    {
+        if (currentAnimation == animationName)
+            return;
+
+        currentAnimation = animationName;
+        animator.Play(animationName);
+    }
+
     public void MoveLeft()
     {
         moveDirection = -1f;
@@ -63,7 +100,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(
+                Vector3.up * jumpForce,
+                ForceMode.Impulse
+            );
+
             isGrounded = false;
         }
     }

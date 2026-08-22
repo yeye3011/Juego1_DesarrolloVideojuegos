@@ -153,4 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a234d4a0f83f6d848b58850a1d1dfcd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingObject
-  fallSpeed: 3.5
+  fallSpeed: 3
+  points: 10

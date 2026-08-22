@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject[] fallingObjectPrefabs;
 
     [Header("Tiempo entre objetos")]
-    public float spawnInterval = 2f;
+    public float spawnInterval = 1.5f;
 
     [Header("Zona de aparición")]
     public float minX = -4f;
