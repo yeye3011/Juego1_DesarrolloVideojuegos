@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float maxX = 4f;
 
     [Header("Salto")]
-    public float jumpForce = 4f;
-    public float fallMultiplier = 0.8f;
+    public float jumpForce = 3f;
+    public float fallMultiplier = 2f;
 
     private Rigidbody rb;
     private Animator animator;
@@ -41,19 +41,32 @@ public class PlayerMovement : MonoBehaviour
         velocity.x = moveDirection * moveSpeed;
         rb.linearVelocity = velocity;
 
-        // Caída más rápida
+        // Caída
         if (rb.linearVelocity.y < 0)
         {
             rb.AddForce(
-                Vector3.up * Physics.gravity.y * (fallMultiplier - 1f),
+                Vector3.up * Physics.gravity.y * fallMultiplier,
                 ForceMode.Acceleration
             );
         }
 
         // Límites laterales
-        Vector3 position = rb.position;
-        position.x = Mathf.Clamp(position.x, minX, maxX);
-        rb.position = position;
+        if (rb.position.x < minX)
+        {
+            rb.MovePosition(new Vector3(
+                minX,
+                rb.position.y,
+                rb.position.z
+            ));
+        }
+        else if (rb.position.x > maxX)
+        {
+            rb.MovePosition(new Vector3(
+                maxX,
+                rb.position.y,
+                rb.position.z
+            ));
+        }
     }
 
     private void UpdateAnimation()

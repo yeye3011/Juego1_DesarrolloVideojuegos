@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 654517614689855322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 0.0053625, y: 8.002, z: 0.0020115}
+  m_LocalScale: {x: 0.63070697, y: 0.63070697, z: 0.63070697}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3675314733056706687}
@@ -113,8 +113,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.1520095, y: 0.71844786, z: 0.6260547}
+  m_Center: {x: 0.115214676, y: 0.029147694, z: 0.0936709}
 --- !u!54 &5861759669500876054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingObject
   fallSpeed: 3
-  points: -10
+  minRotationSpeed: 30
+  maxRotationSpeed: 70
+  points: -6
+  positiveGroundDelay: 1
 --- !u!1001 &3786381851374366612
 PrefabInstance:
   m_ObjectHideFlags: 0
