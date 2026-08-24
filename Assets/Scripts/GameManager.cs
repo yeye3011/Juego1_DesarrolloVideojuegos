@@ -579,36 +579,35 @@ public class GameManager : MonoBehaviour
         if (powerUpGround == null)
             yield break;
 
-        // Activar suelo
+        // Activar el suelo completo.
+        // El collider permanecerá activo durante TODO el Power-Up.
         powerUpGround.SetActive(true);
 
+        // Obtener solamente la parte visual.
         Renderer groundRenderer =
             powerUpGround.GetComponent<Renderer>();
-
-        Color originalColor = Color.white;
-
-        if (groundRenderer != null)
-        {
-            originalColor =
-                groundRenderer.material.color;
-        }
 
         Debug.Log("POWER-UP SUELO ACTIVADO");
 
 
-        // Tiempo normal
+        // =====================================================
+        // TIEMPO NORMAL
+        // =====================================================
+
         float normalDuration =
             Mathf.Max(
                 0f,
                 powerUpDuration - warningDuration
             );
 
-        yield return new WaitForSeconds(
-            normalDuration
-        );
+        yield return new WaitForSeconds(normalDuration);
 
 
-        // Advertencia
+        // =====================================================
+        // ADVERTENCIA
+        // SOLO PARPADEA EL RENDERER
+        // =====================================================
+
         Debug.Log(
             "ADVERTENCIA: EL SUELO VA A DESAPARECER"
         );
@@ -617,38 +616,42 @@ public class GameManager : MonoBehaviour
 
         while (warningTimer < warningDuration)
         {
+            // Ocultar SOLO la imagen del suelo.
+            // El Box Collider sigue activo.
             if (groundRenderer != null)
             {
-                groundRenderer.material.color =
-                    warningColor;
+                groundRenderer.enabled = false;
             }
 
-            yield return new WaitForSeconds(
-                blinkSpeed
-            );
+            yield return new WaitForSeconds(blinkSpeed);
 
+
+            // Volver a mostrar SOLO la imagen.
             if (groundRenderer != null)
             {
-                groundRenderer.material.color =
-                    originalColor;
+                groundRenderer.enabled = true;
             }
 
-            yield return new WaitForSeconds(
-                blinkSpeed
-            );
+            yield return new WaitForSeconds(blinkSpeed);
 
             warningTimer += blinkSpeed * 2f;
         }
 
 
-        // Restaurar color
+        // Asegurarnos de dejar visible el Renderer
+        // antes de desactivar el objeto completo.
         if (groundRenderer != null)
         {
-            groundRenderer.material.color =
-                originalColor;
+            groundRenderer.enabled = true;
         }
 
-        // Desaparece suelo + collider
+
+        // =====================================================
+        // TERMINAR POWER-UP
+        // =====================================================
+
+        // Ahora sí desaparecen juntos:
+        // visual + collider.
         powerUpGround.SetActive(false);
 
         Debug.Log("POWER-UP SUELO TERMINADO");
