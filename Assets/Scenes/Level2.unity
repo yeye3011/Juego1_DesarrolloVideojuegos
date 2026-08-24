@@ -490,8 +490,8 @@ MonoBehaviour:
   - {fileID: 654517614689855322, guid: e1f4f1c9459e409449d2a95c810ff63d, type: 3}
   - {fileID: 654517614689855322, guid: 6ee322fec7f7a46418ce5276fbd2b700, type: 3}
   spawnInterval: 1.5
-  minX: -3.5
-  maxX: 3.5
+  minX: -3.2
+  maxX: 3.2
 --- !u!1 &198968462
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +787,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 1
 --- !u!114 &247382668
 MonoBehaviour:
@@ -802,8 +802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  minX: -3.5
-  maxX: 3.5
+  minX: -3.2
+  maxX: 3.2
   jumpForce: 6.5
   fallMultiplier: 1.5
 --- !u!1 &258999918
@@ -2362,7 +2362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &715457223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2382,7 +2382,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.98, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &715457224
 MeshRenderer:

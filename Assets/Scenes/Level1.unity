@@ -299,8 +299,8 @@ MonoBehaviour:
   - {fileID: 654517614689855322, guid: f12f20a4f21071440b4313e333cb051f, type: 3}
   - {fileID: 654517614689855322, guid: 36f2a148ff572f24b924dacdefab2a29, type: 3}
   spawnInterval: 1.5
-  minX: -3.5
-  maxX: 3.5
+  minX: -3.2
+  maxX: 3.2
 --- !u!1 &228195172
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +520,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 1
 --- !u!114 &247382668
 MonoBehaviour:
@@ -535,8 +535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  minX: -3.5
-  maxX: 3.5
+  minX: -3.2
+  maxX: 3.2
   jumpForce: 6.5
   fallMultiplier: 1.5
 --- !u!1 &330585543
@@ -1022,6 +1022,8 @@ MonoBehaviour:
   powerUpPoints: 0
   powerUpPointsNeeded: 60
   powerUpButton: {fileID: 0}
+  powerUpAudioSource: {fileID: 0}
+  powerUpSound: {fileID: 0}
   powerUpDuration: 5
   powerUpGround: {fileID: 0}
   warningDuration: 2

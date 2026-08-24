@@ -604,8 +604,8 @@ MonoBehaviour:
   - {fileID: 654517614689855322, guid: f51a749bc3abc484699d874befa2d07d, type: 3}
   - {fileID: 654517614689855322, guid: 23e685336624710428fe38882093dbf7, type: 3}
   spawnInterval: 1.5
-  minX: -3.5
-  maxX: 3.5
+  minX: -3.2
+  maxX: 3.2
 --- !u!1 &198968462
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +902,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 1
 --- !u!114 &247382668
 MonoBehaviour:
@@ -917,8 +917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  minX: -3.5
-  maxX: 3.5
+  minX: -3.2
+  maxX: 3.2
   jumpForce: 6.5
   fallMultiplier: 1.5
 --- !u!1 &258999918
