@@ -810,4 +810,10 @@ public class GameManager : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex
         );
     }
+
+    public void GoToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
 }
